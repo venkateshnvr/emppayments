@@ -1,0 +1,42 @@
+import sys
+
+class custmor:
+    Bank_Name="Venkatesh Bank"
+
+    def __init__(self,name,balance=0.0):
+        self.name=name
+        self.balance=balance
+
+    def deposite(self,amount):
+        self.balance=self.balance+amount
+        print(self.name,"your account balance:",self.balance)
+
+    def withdraw(self,amount):
+        if amount > self.balance:
+            print("your account have insufficent balance")
+            sys.exit()
+        else:
+            self.balance=self.balance-amount
+            print(self.nmae,"your balance",self.balance)
+
+
+
+print("Welcome to",custmor.Bank_Name)
+name=input("enter the name: ")
+obj=custmor(name)
+print("hello",obj.name)
+
+while True:
+    print("D-Deposite\nW-withdraw\nE-exit")
+    select=input("enter select one :")
+    if select=="d" or select=="D":
+        amount=float(input("enter deposite amount: "))
+        obj.deposite(amount)
+    elif select=="W" or select=="w":
+        amount=float(input("enter amount: "))
+        obj.withdraw(amount)
+    elif select=="e" or select=="E":
+        sys.exit()
+    else:
+        print("plese enter correct values")
+
